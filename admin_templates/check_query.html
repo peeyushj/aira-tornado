@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3" align="center">
+            <form role="form" id="queryForm" method='POST' action='' class="form-horizontal">
+                {% raw xsrf_form_html() %}
+                <div class="form-group">
+                    <input type="text" name="searchEntity" value="" id="searchEntity" placeholder="Enter a query" class="form-control input-md" autofocus/>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% autoescape xhtml_escape %}
+    {% autoescape None %}
+    {% if query %}
+        <b>You searched for: {{query}}</b><br/><br />
+    {% end %}
+
+    {% if result_sentences %}
+        <div>
+            {% for title in titles %}
+                <div style="border:1px solid; border-radius: 10px;padding:5px; background:white;">
+                    {% for sentence in result_sentences[title[1]] %}
+                        {{sentence}}&nbsp;
+                    {% end %}
+                    <br />
+                    {% if  title[0] %}
+                        <a href="{{title[1]}}" target="_blank">{{title[0]}}</a>
+                    {% end %}
+                    <br />
+                </div>
+                <br />
+            {% end %}
+        </div>
+    {% end %}
+{% end %}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Peeyush Jain">
+
+    <title>AIRA - CommonFloor</title>
+    <!-- jQuery -->
+    <script src="{{ static_url("bower_components/jquery/dist/jquery.min.js") }}"></script>
+    <link href="{{ static_url("bower_components/bootstrap/less/bootstrap.less") }}" rel="stylesheet/less" type="text/css">
+    <script src="{{ static_url("dist/js/less.min.js") }}"></script>
+
+    <!-- Custom Fonts -->
+    <link href="{{ static_url("bower_components/font-awesome/css/font-awesome.min.css") }}" rel="stylesheet">
+    <link href="{{ static_url("bower_components/select2/select2.css") }}" rel="stylesheet">
+
+    
+    {% block extracss %}{% end %}
+
+</head>
+
+<body style="background:#448ed3 ;font-family:Lato;">
+
+    <div id="wrapper">
+        <div id="overlay"></div>
+        <!-- Navigation -->
+        <header class="navbar navbar-default navbar-fixed-top" role="navigation" >
+            <div class="container">
+            {% include 'header.html' %}
+            </div>
+        </header>
+        <div class="container" style="padding-top:60px">
+        {% block content %}
+        {% end %}
+    </div>
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ static_url("bower_components/bootstrap/dist/js/bootstrap.min.js") }}"></script>
+    <script src="{{ static_url("bower_components/moment/min/moment.min.js") }}"></script>
+    
+    <script src="{{ static_url("bower_components/select2/select2.min.js") }}"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{ static_url("dist/js/sb-admin-2.js") }}"></script>
+
+    {% block extrajs %}{% end %}
+
+</body>
+
+</html>

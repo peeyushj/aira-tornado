@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  	<!--<script>
+	function showResult(str) {
+		alert(str);
+	  if (str.length==0) { 
+	    document.getElementById("livesearch").innerHTML="";
+	    document.getElementById("livesearch").style.border="0px";
+	    return;
+	  }
+	  if (window.XMLHttpRequest) {
+	    // code for IE7+, Firefox, Chrome, Opera, Safari
+	    xmlhttp=new XMLHttpRequest();
+	  } else {  // code for IE6, IE5
+	    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function() {
+	    if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+	      document.getElementById("livesearch").innerHTML=xmlhttp.responseText;
+	      document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+	    }
+	  }
+	  xmlhttp.open("GET","livesearch.php?q="+str,true);
+	  xmlhttp.send();
+	}
+	</script>-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <title>Artificial Intelligent Real Estate Agent</title>
+  </head>
+  <body>
+  	<div align="center">
+  		<h1>AIRA Knowledge Base</h1>
+	  	<div>
+		  	<form method="POST">
+			  {% raw xsrf_form_html() %}
+			  <input type="text" name="searchEntity" autofocus>
+			  <!-- <input type="submit" value="Submit"> -->
+			</form>
+		</div>
+	</div>
+
+	{% if result_sentences %}
+		<div>
+			<ul>
+				{% for result_sentence in result_sentences %}
+		            <li>
+		            	{{ result_sentence }}
+		            </li>
+		        {% end %}
+	    	</ul>
+	    </div>
+    {% end %}
+
+
+  	<!-- <form onsubmit="showResult(this.value)">
+		<input type="text" size="30">
+		<div id="livesearch"></div>
+	</form> -->
+  </body>
+</html>

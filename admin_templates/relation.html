@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if logs %}
+	{% for log in logs %}
+	    {{log}}<br />
+	{% end %}
+{% end %}
+
+{% end %}

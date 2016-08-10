@@ -1,0 +1,45 @@
+            
+            <style type="text/css">
+                .avatar {
+                    width: 100%;
+                    margin: auto;
+                    width: 65px;
+                    border-radius: 100px;
+                    height: 65px;
+                    background: #448ed3 ;
+                    position: relative;
+                    bottom: 15px;
+                    left:-200px;
+                }
+                .avatar img {
+                    width: 55px;
+                    height: 55px;
+                    border-radius: 100px;
+                    margin: auto;
+                    border:3px solid #fff;
+                    display: block;
+                }
+            </style>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/" alt="AIRA">
+                    AIRA - Artificial Intelligent Real estate Agent
+                        <div class="avatar">
+                            <img src="https://cdn1.iconfinder.com/data/icons/robotics/128/_Glasses-128.png">
+                        </div>
+                    
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+            <form action="/auth/logout/" method="post" id="login_form">
+                    <div id="form_btn">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li> <a href="/check_query">Check Query</a></li>
+                        <li> <a href="/add_single_node">Add Single Node</a></li>
+                        <li> <a href="/add_nodes">Add Nodes & relationship</a></li>
+                        <li><input id="signout-btn" class="btn btn-blue" type="submit" value="Sign Out" style="margin-top:5px;"></li>
+                            
+                        <!-- <li> <a href="/auth/login">Sign Out</a></li> -->
+                    </ul>
+            </div>
+                </form>
+            <!-- /.navbar-top-links -->

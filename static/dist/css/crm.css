@@ -1,0 +1,147 @@
+.headerLogo{
+	  float: left;
+      margin: 9px 0px 0px 10px;
+}
+.accountInfo table{
+	margin-top:10px;
+}
+
+.navbar, .panel-heading{
+	background:grey !important;
+}
+
+body, .sidebar-nav{
+	background:white !important;
+}
+
+.navbar-default .navbar-brand, .dropdown-toggle{
+	color:#fff;
+}
+.nav li a{
+	color:#000;
+}
+/*.nav li:hover a{
+	color:#fff;
+	background:grey;
+}*/
+
+.page-header{
+	border-bottom:2px solid grey;
+}
+
+.page-header, .accountInfo table tr td{
+	color:#999;
+}
+h3.page-header, h4.page-header{
+	  /*background: grey;*/
+	  padding: 8px;
+	  font-size: 18px;
+	  color:grey;
+	  font-weight: normal;
+}
+table.dataTable thead > tr > th{
+	padding:10px;
+}
+table.dataTable tbody > tr > td{
+	border-color: #000;
+}
+
+.sidebar ul li a.active{
+	color:#fff;
+	background:#f68121;
+
+}
+
+.panel-default{
+	/*border-color:grey;*/
+	border:none;
+	border-radius: 0px;
+}
+thead{
+	background:lightgrey ;
+	color:#000;
+}
+td{
+	border-color:#000;
+}
+
+.table{
+	border-color:grey;
+}
+a{
+	color:lighblue;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover{
+	  background-color: grey;
+  	  border-color: grey;
+}
+
+.modal-content{
+	border-radius:0px;
+}
+
+.navbar-brand{
+	/*text-shadow:2px 2px #008080;*/
+	font-size: 22px !important;
+}
+
+.navbar-brand:hover{
+	color:#fff !important;
+	/*text-shadow:2px 2px #008080;*/
+}
+
+.btn-success{
+	background:#f68121;
+	border:1px solid #f68121;
+}
+.btn-success:hover{
+
+}
+.panel-default > .panel-heading{
+	color:#fff;
+	text-align: left;
+	border-top-right-radius: 0px; 
+    border-top-left-radius: 0px; 
+    background:none !important;
+    color:grey;
+    border-bottom:2px solid grey;
+    font-size: 18px;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd){
+	background-color: #D5D1D1;
+}
+
+.table-striped > tbody > tr:nth-of-type(even){
+	background-color: #AEACAC;
+}
+
+
+
+.headerUl li a{
+	color:#999;
+	background:none !important;
+}
+.headerUl li a:hover, .headerUl li:hover a{
+	color:#999;
+	/*background:none !important;*/
+}
+
+.open .dropdown-toggle i, .open .headerUl li a{
+	color:#f68121;
+}
+
+.open .headerUl li:hover{
+	background:#cdcdcd;
+}
+
+.modal-body h4{
+	color:grey;
+}
+
+.disabledCss{
+	background: none repeat scroll 0 0 #eeeeee;
+  	cursor: not-allowed;
+  	pointer-events: none;
+}

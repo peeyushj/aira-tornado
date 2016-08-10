@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Query - AIRA</title>
+
+    <!-- Bootstrap Core CSS -->
+    <script src="{{static_path}}bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="{{static_path}}bower_components/bootstrap/less/bootstrap.less" rel="stylesheet/less" type="text/css">
+
+    <script src="{{static_path}}dist/js/less.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link href="{{static_path}}dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="{{static_path}}dist/css/crm.css" rel="stylesheet">
+
+    <link href="{{static_path}}dist/js/jsdatepicker/jquery.datetimepicker.css" rel="stylesheet">
+     
+     <script src="{{static_path}}dist/js/jsdatepicker/jquery.datetimepicker.js"></script>
+
+    <!-- Morris Charts CSS -->
+    <!-- <link href="../bower_components/morrisjs/morris.css" rel="stylesheet"> -->
+
+    <!-- Custom Fonts -->
+    <link href="{{static_path}}bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="{{static_path}}bower_components/jquery/dist/jquery.min.js"></script>
+    <link href="{{static_path}}bower_components/select2/select2.css" rel="stylesheet">
+
+    <link href="https://code.jquery.com/ui/1.9.1/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <style>
+        .hideElement{
+            display: none;
+        }
+    </style> 
+    <link href="{{static_path}}dist/css/jquery-ui.css" rel="stylesheet"> 
+    <script src="{{static_path}}dist/js/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.9.2/jquery-ui.min.js"></script>
+    <!-- <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+    .rounded {
+          border-radius: 10px;
+          background: #000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <div id="overlay"></div>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12" align="center">
+                    <h4 class="page-header">AIRA Query - Artificial Intelligent Real Estate Agent</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3" align="center">
+                    <form role="form" id="queryForm" method='POST' action='' class="form-horizontal">
+                        {% raw xsrf_form_html() %}
+                        <div class="form-group">
+                            <input type="text" name="searchEntity" value="" id="searchEntity" placeholder="Enter a query" class="form-control input-md" autofocus/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% autoescape xhtml_escape %}
+            {% autoescape None %}
+            {% if query %}
+                <b>You searched for: {{query}}</b><br/><br />
+            {% end %}
+
+            {% if result_sentences %}
+                <div>
+                    {% for title in titles %}
+                        <div style="border:1px solid; border-radius: 10px;padding:5px;">
+                            {% for sentence in result_sentences[title[1]] %}
+                                {{sentence}}
+                            {% end %}
+                            <br />
+                            {% if  title[0] %}
+                                <a href="{{title[1]}}" target="_blank">{{title[0]}}</a>
+                            {% end %}
+                            <br />
+                        </div>
+                        <br />
+                    {% end %}
+                </div>
+            {% end %}
+
+            <!-- /.row -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{static_path}}bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="{{static_path}}bower_components/moment/min/moment.min.js"></script>
+    <!--<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>-->
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="{{static_path}}bower_components/metisMenu/dist/metisMenu.min.js"></script>
+    <script src="{{static_path}}bower_components/select2/select2.min.js"></script>
+
+    <!--<script src="../bower_components/metisMenu/dist/metisMenu.min.js"></script>-->
+
+    <!-- Morris Charts JavaScript -->
+    <!--<script src="../bower_components/raphael/raphael-min.js"></script>
+    <script src="../bower_components/morrisjs/morris.min.js"></script>
+    <script src="../js/morris-data.js"></script>-->
+
+    <!-- Custom Theme JavaScript -->
+    <script src="{{static_path}}dist/js/sb-admin-2.js"></script>
+    <!-- For Date Picker -->
+    
+    <!--<script src="../dist/js/sb-admin-2.js"></script>-->
+
+</body>
+
+</html>

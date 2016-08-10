@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% block content %}
+
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" align="center">
+                    <form role="form" id="UrlForm" method='POST' action='/structure_relation' class="form-horizontal">
+                        {% raw xsrf_form_html() %}
+                        <div class="form-group">
+                            <div class="col-md-10">
+                                <input type="text" name="url" value="" id="url" placeholder="Enter a URL to Knowledge Base" class="form-control input-md" autofocus/>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="submit" name="startParsing" value="Start Parsing" class="form-control input-md "/>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-2">
+                    <!-- <form role="form" id="ParseForm" method='POST' action='/relation' class="form-horizontal">
+                        {% raw xsrf_form_html() %}
+                        <div class="form-group">
+                            <input type="submit" value="Start Parsing" class="form-control input-md "/>
+                        </div>
+                    </form> -->
+                    <form role="form" id="UrlForm" method='POST' action='' class="form-horizontal">
+                        {% raw xsrf_form_html() %}
+                        <div class="form-group">
+                            <input type="submit" name="reset" value="Reset" id="reset" class="btn btn-default"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            
+            <div align="center">
+                <div class="row">
+                    <div class="col-md-5">
+                        <form role="form" id="UrlForm" method='POST' action='' class="form-horizontal">
+                            {% raw xsrf_form_html() %}
+                            <div class="well well-lg">
+                                <div class="row">
+                                    <h3 align="center">Create A Node in blank graph</h3>
+                                    <div class="form-group">
+                                        <textarea rows="5" cols="50" name="new_nodes_txt">
+                                        </textarea>
+                                        <br />
+                                        <input type="submit" name="addNode" value="Add Node" id="addNode" class="btn btn-default"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form role="form" id="similarityForm" method='POST' action='' class="form-horizontal">
+                            {% raw xsrf_form_html() %}
+                            <div class="well well-lg">
+                                <div class="row">
+                                    <h3 align="center">Create Similarity From Existing Node</h3>
+                                    <div class="col-md-5">
+                                        <select required style="width:100%; font-size: 14px;padding:1px;" id="selectFirstNodeId" name="select_first_node" class="form-control input-md">
+                                            <option selected value>--Select A Node--</option>
+                                            {% for existing_node in existing_nodes %}
+                                                <option value="{{ existing_node }}">{{ existing_node }}</option>
+                                            {% end %}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <select required style="width:100%; font-size: 14px;padding:1px;" class="form-control input-md" id="selectSimilarityId" name="select_similarity">
+                                            <option value="==">==</option>
+                                            <option value="!=">!=</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <select required style="width:100%; font-size: 14px;padding:1px;" id="selectSecondNodeId" name="select_second_node" class="form-control input-md">
+                                            <option selected value>--Select A Node--</option>
+                                            {% for existing_node in existing_nodes %}
+                                                <option value="{{ existing_node }}">{{ existing_node }}</option>
+                                            {% end %}
+                                        </select>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <div class="form-group">
+                                            <input type="submit" value="Add Similarity" class="form-control input-md "/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <form role="form" id="synonymsForm" method='POST' action='' class="form-horizontal">
+                            {% raw xsrf_form_html() %}
+                            <div class="well well-lg">
+                                <div class="row">
+                                    <h3 align="center">Create Synonyms</h3>
+                                    <div class="col-md-5">
+                                        <select required style="width:100%; font-size: 14px;padding:1px;" id="synonymFirstNodeId" name="synonymFirstNodeId" class="form-control input-md">
+                                            <option selected value>--Select A Node--</option>
+                                            {% for existing_node in existing_nodes %}
+                                                <option value="{{ existing_node }}">{{ existing_node }}</option>
+                                            {% end %}
+                                        </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <select required style="width:100%; font-size: 14px;padding:1px;" class="form-control input-md" id="selectSimilarityId" name="select_similarity">
+                                            <option value="==">==</option>
+                                            <option value="!=">!=</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="synonymSecondNodeId" value="" id="synonymSecondNodeId" placeholder="Enter a Synonym" class="form-control input-md" autofocus/>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-4">
+                                        <div class="form-group">
+                                            <input type="submit" value="Add Synonyms" class="form-control input-md "/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-7">
+                        {% if existing_nodes %}
+                            <div class="well well-lg">
+                                <h3 align="center">Existing nodes From URL</h3>
+                                <div>
+                                    {% for existing_node in existing_nodes %}
+                                        <font size="3"><span class="label label-success">{{ existing_node }}&nbsp;</span></font>
+                                    {% end %}
+                                </div>
+                            </div>
+                        {% end %}
+                        {% if relations %}
+                        <div class="well well-lg">
+                            <h3 align="center">Similarities</h3>
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Node</th>
+                                            <th>Relation</th>
+                                            <th>Node</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for relation in relations %}
+                                            <tr>
+                                                <td>{{ relation.first_node }}</td>
+                                                <td>{{ relation.relation }}</td>
+                                                <td>{{ relation.second_node }}</td>
+                                            </tr>
+                                        {% end %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        {% end %}
+                    </div>
+                </div>
+            </div>
+{% end %}

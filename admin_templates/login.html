@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Login - AIRA</title>
+    <link rel="stylesheet" href="{{ static_url("login/css/reset.css") }}">
+    <link rel="stylesheet" href="{{ static_url("login/css/style.css") }}">
+  </head>
+
+  <body>
+
+    <div class="wrap">
+        <div class="avatar">
+            <img src="https://cdn1.iconfinder.com/data/icons/robotics/128/_Glasses-128.png">
+        </div>
+        <form action="/auth/login/" method="post" id="login_form">
+                <input autocapitalize="off" autocorrect="off" class="text-input" id="username" name="username" tabindex="1" type="text" value="" placeholder="username" required>
+                <div class="bar">
+                    <i></i>
+                </div>
+                <input class="text-input" id="password" name="password" tabindex="2" type="password" value="" placeholder="password" required>
+            
+                <br />
+            
+                <button id="signin-btn" type="submit">Sign in</button>
+                <!-- <input id="signin-btn" class="btn btn-blue" type="submit" value="Sign In" tabindex="3"> -->
+            
+        </form>
+        <div align="center">
+            <span>{{errormessage}}</span>
+        </div><br />
+        <a href="/register" class="signin_link">register now</a>
+        <!-- <input type="text" placeholder="username" required>
+        <div class="bar">
+            <i></i>
+        </div>
+        <input type="password" placeholder="password" required>
+        <a href="" class="forgot_link">forgot ?</a>
+        <button>Sign in</button> -->
+    </div>
+    
+        <script src="{{ static_url("login/js/index.js") }}"></script>
+
+    
+    
+    
+  </body>
+</html>
+
